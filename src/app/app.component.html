@@ -1,20 +1,39 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<header *ngIf="showNavBar">
+  <!-- Start Navigation -->
+  <nav  class="navbar navbar-expand-lg navbar-dark fixed-top py-0">
+    <div class="container">
+      <a class="navbar-brand font-alt" id="home">
+        <img class="mr-2 mb-1 logo" src="assets/logos/logo_schriftzug.png" alt="Lumara">
+      </a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isCollapsed = !isCollapsed" data-toggle="collapse" data-target="#navbar-toggle" aria-controls="navbar-toggle">
+        <span class="icon-menu"></span>
+      </button>
 
+      <div class="collapse navbar-collapse justify-content-end text-uppercase " id="navbar-toggle" [ngbCollapse]="isCollapsed">
+        <ul class="navbar-nav" (click)="navLinkClicked()">
+          <li class="nav-item" [routerLinkActive]="['active']">
+            <a class="nav-link" routerLink="news">Backsystem</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['active']">
+              <a class="nav-link" routerLink="news">Produkte/Angebote</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" routerLink="news">Lumara erleben</a>
+              </li>
+              <li class="nav-item" [routerLinkActive]="['active']">
+                  <a class="nav-link" routerLink="news">Rezepte</a>
+                </li>
+        </ul>
+        <!-- navbar-nav -->
+      </div>
+      <!-- navbar-collapse -->
+    </div>
+    <!-- container -->
+  </nav>
+  <!-- nav -->
+  <!-- Ende Navigation -->
+</header>
+
+<main>
+    <router-outlet></router-outlet>
+</main>

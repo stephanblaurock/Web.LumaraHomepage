@@ -1,1 +1,100 @@
-/* You can add global styles to this file, and also import other style files */
+/*** Allgemein ***/
+body, p {
+  font-family: 'Oregano';
+  font-size: x-large;
+}
+
+.btn-red {
+  font-size: x-large;
+}
+
+h1 {
+  font-size: xx-large;
+  font-family: 'Euphoria Script';
+}
+
+h2, h3, h4, h5, h6, .font-alt {
+  font-family: 'Oregano';
+  font-weight:300;
+  color: #BE392B;
+}
+
+main {
+  margin-top: 58px;
+}
+
+ul {
+  margin-left: 15px;
+}
+
+/*** Navbar ***/
+#home .logo {
+  height: 45px;
+  -webkit-filter: drop-shadow(1px 1px 1px #FFF);
+  filter: drop-shadow(1px 1px 1px #FFF);
+}
+.navbar {
+  font-family: 'Roboto';
+  font-size: initial;
+  background-color: #AB172E;
+}
+.navbar .avatar {
+  height: 40px;
+  width: 40px;
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+}
+
+.breadcrumb {
+  border-radius: 0px;
+}
+
+/*** SLIDER ***/
+.slider {
+  background: url('/assets/motive/motiv1.jpg') 50% 0 fixed no-repeat;
+	/*height: 100vh;*/
+	background-size: cover;
+}
+
+/*** SECTIONS ***/
+.transsection {
+  background-color: #FFF;
+  opacity: 0.9;
+  border-radius: 5px;
+  padding-bottom: 10px;
+}
+
+.redsection {
+  background-color: #AB172E;
+  color: white;
+  border-radius: 5px;
+}
+
+/*** TAFEL ***/
+.tafel {
+  background-image: url('/assets/backgrounds/tafel.jpg');
+  color: white;
+}
+
+/*** RESPONSIVE-DESIGN ***/
+/*** schmale Darstellung ***/
+@media screen and (max-width: 900px) {
+  .postcontent {
+    padding-top: 80px;
+    padding-left: 0px;
+  }
+  .postcontent ul {
+    margin-left: 15px;
+  }
+}
+
+/*** Darstellung Smartphone-Menu ***/
+/*
+@media screen and (max-width: 400px) {
+  .postcontent {
+    padding-top: 100px;
+    padding-left: 0px;
+  }
+}
+*/
