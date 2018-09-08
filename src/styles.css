@@ -10,7 +10,9 @@ body, p {
 
 h1 {
   font-size: xx-large;
-  font-family: 'Euphoria Script';
+  /*font-family: 'Euphoria Script';*/
+  font-family: 'Oregano';
+  color: #AB172E;
 }
 
 h2, h3, h4, h5, h6, .font-alt {
@@ -57,6 +59,17 @@ ul {
 	background-size: cover;
 }
 
+#pagebg-container {
+  z-index: -1;
+  background: url('/assets/motive/motiv1.jpg');
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+}
+
 /*** SECTIONS ***/
 .transsection {
   background-color: #FFF;
@@ -69,6 +82,10 @@ ul {
   background-color: #AB172E;
   color: white;
   border-radius: 5px;
+}
+
+.bg-red {
+  background-color: #AB172E;
 }
 
 /*** TAFEL ***/

@@ -1,9 +1,12 @@
+<div id="pagebg-container">
+
+</div>
 <!-- Motiv-Slider -->
-<section id="slider" class="slider">
-  <div class="container" style="padding-top: 50vh;">
+<section id="slider">
+  <div class="container" style="padding-top: 35vh;">
     <!-- Welcome-Section -->
     <div class="row transsection">
-      <div class="col-sm-12 col-md-4">
+      <div class="col-sm-12 col-md-4 justify-content-center">
         <img src="/assets/logos/logo_198.png" class="img-fluid">
       </div>
       <div class="col-sm-12 col-md-8">
@@ -11,8 +14,8 @@
         <p>Erleben Sie mit uns die spannende Welt des professionellen Backens und schaffen Sie beneidenswerte Kreationen
           mit unserem einzigartigem Backsystem</p>
         <br>
-        <p>Sie möchten unser Backsystem kennenlernen? Verschaffen Sie sich <a href="#">hier</a> einen Überblick</p>
-        <p>Das <a href="#">Team</a>, das hinter dem Namen LUMARA steht, garantiert Ihren Erfolg!</p>
+        <p>Sie möchten unser Backsystem kennenlernen? Verschaffen Sie sich <a routerLink="/backsystem">hier</a> einen Überblick</p>
+        <p>Das <a routerLink="/ueberuns">Team</a>, das hinter dem Namen LUMARA steht, garantiert Ihren Erfolg!</p>
       </div>
     </div>
     <!-- ENDE Welcome-Section-->
@@ -41,20 +44,21 @@
         </p>
         <p>Wir können sagen: LUMARA bietet alles aus einer Hand. Qualitativ hochwertige Produkte zum Backen, Servieren, Transportieren,
           Garnieren und Verzieren von Kuchen und Torten.</p>
-        <button type="button" class="btn btn-danger btn-red">LUMARA-Backsystem</button>
+        <!-- button type="button" class="btn btn-danger btn-red">LUMARA-Backsystem</button -->
+        <a id="produkte" routerLink="/backsystem" type="button" class="btn btn-danger btn-red">LUMARA-Backsystem</a>
       </div>
     </div>
     <!-- ENDE Backsystem-Section -->
     <!-- Produkt-Katalog-Section -->
-    <div class="row transsection" style="margin-top: 15px;">
+    <div id="sss" class="row transsection" style="margin-top: 15px;">
       <div class="col-sm-12 col-md-8">
         <h1 class="display-4">Produkterlebnis und Schnäppchen</h1>
         <p>Lassen Sie sich unsere aktuellen Sonderangebote nicht entgehen! Es stehen Flyer für folgende Zeiträume bereit:
         </p>
-        <button type="button" class="btn btn-danger btn-red">Flyer KW44/2018 - KW50/2018</button>&nbsp;&nbsp;
-        <button type="button" class="btn btn-danger btn-red">Flyer KW51/2018 - KW3/2019</button><br>
+        <a type="button" class="btn btn-danger btn-red" href="https://portal.lumara.de/flyer/Flyer_KW36-44_2018.pdf">Flyer KW36-44 2018</a>&nbsp;&nbsp;
+        <a type="button" class="btn btn-danger btn-red" href="https://portal.lumara.de/flyer/Flyer_KW45-KW1.pdf">Flyer KW45/2018 - KW1/2019</a><br>
         <p>...oder stöbern Sie in unserem regulärem Produktkatalog. Hier ist für jeden Geschmack etwas dabei</p>
-        <button type="button" class="btn btn-danger btn-red">zum Produktkatalog</button>
+        <a id="lumaraerleben" type="button" class="btn btn-danger btn-red" routerLink="/produktkatalog">zum Produktkatalog</a>
       </div>
       <div class="col-sm-12 col-md-4 align-middle">
         <img src="/assets/motive/produktkatalog.jpg" class="img-fluid mt-3">
@@ -62,44 +66,81 @@
     </div>
     <!-- ENDE Produkt-Katalog-Section -->
     <!-- Backsystem-Section -->
+    <div id="xxx" class="row justify-content-center redsection" style="margin-top: 15px;">
+      <div class="col-12 text-center">
+        <h1 class="display-2 text-white">Lumara erleben!</h1>
+      </div>
+      <div class="col-12">
+        <div class="card-deck">
+          <!-- Card 1 -->
 
-        <div class="row justify-content-center redsection" style="margin-top: 15px;">
-            <div class="col text-center">
-              <h1 class="display-2">Lumara erleben!</h1>
+          <div class="w-100 d-none d-sm-block d-md-block d-lg-none"><!-- wrap every 2 on sm--></div>
+          <div class="card mb-4 bg-red border-white">
+            <img class="card-img-top" style="min-height: 210px; max-height: 210px; object-fit: cover" src="assets/motive/backkurs.jpg" alt="Backkurse">
+            <div class="card-body">
+              <h4 class="card-title text-white font-weight-bold">Backkurs buchen</h4>
+              <p class="card-text text-white">Erleben Sie die LUMARA-Backwelt live auf einem unserer tollen Backkurse</p>
+              <a type="button" class="btn btn-danger btn-red" routerLink="/backkurse">Backkurse</a>
             </div>
           </div>
-        <div class="row  justify-content-between redsection" style="padding-top: 15px; padding-bottom: 15px;">
-            <div class="col-md text-center mx-5 mr-md-0 mr-lg-3 mb-5 mb-md-auto">
-                <img class="img-fluid mb-4 img-thumbnail" src="assets/motive/lumara-erleben.jpg" alt="Backkurse">
-                <h3 class="font-weight-bold text-white mb-3 ">Backkurs buchen</h3>
-                <p class="px-4">Erleben Sie die LUMARA-Backwelt live auf einem unserer tollen Backkurse</p>
-                <button type="button" class="btn btn-danger btn-red">Kurskalender</button>
-              </div>
-              <!-- col -->
-              <div class="col-md text-center mx-5 mx-md-0 mx-lg-3 mb-5 mb-md-auto">
-                <img class="img-fluid mb-4 img-thumbnail" src="assets/motive/lumara-erleben.jpg" alt="Gastgeberin werden">
-                <h3 class="font-weight-bold text-white mb-3">Gastgeberin werden</h3>
-                <p class="px-4">Laden Sie ein zu einer LUMARA-Backparty und lassen Sie sich mit einem besonderen Gastgebergeschenk belohnen!</p>
-                <button type="button" class="btn btn-danger btn-red">Gastgeber-Infos</button>
-              </div>
-              <!-- col -->
-              <div class="col-md text-center mx-5 ml-md-0 ml-lg-3">
-                <img class="img-fluid mb-4 img-thumbnail" src="assets/motive/lumara-erleben.jpg" alt="Teil des LUMARA-Teams werden">
-                <h3 class="font-weight-bold text-white mb-3">im Team mitarbeiten</h3>
-                <p class="px-4">Lassen Sie sich von uns begeistern und ausbilden und verdienen Sie bei freier Zeiteinteilung ein tolles Zusatzeinkommen </p>
-                <button type="button" class="btn btn-danger btn-red">Kontakt mit Zentrale aufnehmen</button>
-              </div>
-              <!-- col -->
+
+          <!-- Card 1 -->
+
+          <div class="w-100 d-none d-sm-block d-md-block d-lg-none"><!-- wrap every 2 on sm--></div>
+          <div class="card mb-4 bg-red border-white">
+            <img class="card-img-top" style="min-height: 210px; max-height: 210px; object-fit: cover" src="assets/motive/gastgeber.jpg" alt="Backkurse">
+            <div class="card-body">
+              <h4 class="card-title text-white font-weight-bold">Gastgeberin werden</h4>
+              <p class="card-text text-white">Laden Sie ein zu einer LUMARA-Backparty und lassen Sie sich mit einem besonderen
+                Gastgebergeschenk belohnen!
+              </p>
+              <a type="button" class="btn btn-danger btn-red" routerLink="/gastgeber">weitere Infos</a>
+            </div>
+          </div>
+
+          <!-- Card 1 -->
+
+          <div class="w-100 d-none d-sm-block d-md-block d-lg-none"><!-- wrap every 2 on sm--></div>
+          <div class="card mb-4 bg-red border-white">
+            <img class="card-img-top" style="min-height: 210px; max-height: 210px; object-fit: cover" src="assets/motive/team.jpg" alt="Backkurse">
+            <div class="card-body">
+              <h4 class="card-title text-white font-weight-bold">im Team mitarbeiten</h4>
+              <p class="card-text text-white">Lassen Sie sich von uns begeistern und ausbilden und verdienen Sie bei freier
+                Zeiteinteilung ein tolles Zusatzeinkommen</p>
+              <a type="button" class="btn btn-danger btn-red" routerLink="/teammitglied">Zentrale kontaktieren</a>
+            </div>
+          </div>
+
         </div>
-        <div class="row justify-content-center redsection" >
-            <div class="col bg-warning text-center" style="padding-top:15px;">
-              <p style="color: black;">Suchen Sie eine Beraterin in Ihrer Nähe:  <button type="button" class="btn btn-danger d-inline-block btn-red">Kontakt mit Zentrale aufnehmen</button> </p>
-            </div>
-          </div>
+        <!-- Ende Card-Deck-->
+      </div>
+      <!-- Ende Col-->
 
+        <div class="col-12 bg-warning text-center" style="padding-top:15px;">
+          <p style="color: black;"><span class="icon-location-pin"></span>Suchen Sie eine Beraterin in Ihrer Nähe?
+            <a type="button" class="btn btn-danger d-inline-block btn-red" routerLink="/fachberatersuche">Fachberatersuche</a> </p>
+        </div>
+
+    </div>
+
+
+
+
+    <!-- Backsystem-Section -->
+    <div id="rezepte" class="row transsection" style="margin-top: 15px; margin-bottom: 20px;">
+      <div class="col-sm-12 col-md-4">
+        <img src="/assets/motive/rezepte.jpg" class="img-fluid mt-3">
+      </div>
+      <div class="col-sm-12 col-md-8">
+        <h1 class="display-4">Rezepte</h1>
+        <p>Wie heißt es so schön? Das Auge isst mit!
+        </p>
+        <p>Hier präsentieren wir für Sie einige tolle Rezepte aus unseren Rezepte-Welten-Backbüchern</p>
+        <!-- button type="button" class="btn btn-danger btn-red">LUMARA-Backsystem</button -->
+        <a routerLink="/rezepte" type="button" class="btn btn-danger btn-red">zu den Rezepten</a>
+      </div>
+    </div>
     <!-- ENDE Backsystem-Section -->
-  </div>
-
-
+</div>
 </section>
 <!-- Ende Motiv-Slider -->

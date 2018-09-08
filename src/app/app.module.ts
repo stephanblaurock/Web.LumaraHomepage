@@ -31,6 +31,14 @@ registerLocaleData(localeDe);
 const APP_ROUTES: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
+  {path: 'backsystem', component: BacksystemComponent},
+  {path: 'ueberuns', component: UeberUnsComponent},
+  {path: 'produktkatalog', component: ProduktkatalogComponent},
+  {path: 'backkurse', component: BackkurseComponent},
+  {path: 'fachberatersuche', component: FachberatersucheComponent},
+  {path: 'gastgeber', component: GastgeberComponent},
+  {path: 'teammitglied', component: TeammitgliedComponent},
+  {path: 'rezepte', component: RezepteComponent}
 ];
 
 @NgModule({

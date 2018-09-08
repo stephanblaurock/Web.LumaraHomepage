@@ -1,28 +1,29 @@
 <header *ngIf="showNavBar">
   <!-- Start Navigation -->
-  <nav  class="navbar navbar-expand-lg navbar-dark fixed-top py-0">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-0">
     <div class="container">
-      <a class="navbar-brand font-alt" id="home">
+      <a class="navbar-brand font-alt" id="home" routerLink="/">
         <img class="mr-2 mb-1 logo" src="assets/logos/logo_schriftzug.png" alt="Lumara">
       </a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isCollapsed = !isCollapsed" data-toggle="collapse" data-target="#navbar-toggle" aria-controls="navbar-toggle">
+      <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isCollapsed = !isCollapsed" data-toggle="collapse"
+        data-target="#navbar-toggle" aria-controls="navbar-toggle">
         <span class="icon-menu"></span>
       </button>
 
       <div class="collapse navbar-collapse justify-content-end text-uppercase " id="navbar-toggle" [ngbCollapse]="isCollapsed">
         <ul class="navbar-nav" (click)="navLinkClicked()">
-          <li class="nav-item" [routerLinkActive]="['active']">
-            <a class="nav-link" routerLink="news">Backsystem</a>
+          <li class="nav-item" [routerLinkActive]="['backsystem']">
+            <a class="nav-link" routerLink="backsystem">Backsystem</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['active']">
-              <a class="nav-link" routerLink="news">Produkte/Angebote</a>
-            </li>
-            <li class="nav-item" [routerLinkActive]="['active']">
-                <a class="nav-link" routerLink="news">Lumara erleben</a>
-              </li>
-              <li class="nav-item" [routerLinkActive]="['active']">
-                  <a class="nav-link" routerLink="news">Rezepte</a>
-                </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/home#produkte">Produkte/Angebote</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/home#lumaraerleben">Lumara erleben</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['rezepte']">
+            <a class="nav-link" routerLink="rezepte">Rezepte</a>
+          </li>
         </ul>
         <!-- navbar-nav -->
       </div>
@@ -35,5 +36,5 @@
 </header>
 
 <main>
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </main>
