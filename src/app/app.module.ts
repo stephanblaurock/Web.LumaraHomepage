@@ -25,6 +25,8 @@ import { RezepteComponent } from './views/rezepte/rezepte.component';
 import { RezeptComponent } from './views/rezepte/rezept.component';
 import { ImpressumComponent } from './views/allgemein/impressum.component';
 import { DatenschutzComponent } from './views/allgemein/datenschutz.component';
+import { LumaraService } from './service/lumara_service';
+import { FachberaterProfilComponent } from './views/erleben/fachberater-profil.component';
 
 registerLocaleData(localeDe);
 
@@ -60,7 +62,8 @@ const APP_ROUTES: Routes = [
     RezepteComponent,
     RezeptComponent,
     ImpressumComponent,
-    DatenschutzComponent
+    DatenschutzComponent,
+    FachberaterProfilComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,7 @@ const APP_ROUTES: Routes = [
     NgbCollapseModule,
     NgbCarouselModule
   ],
-  providers: [{
+  providers: [LumaraService, {
     provide: LOCALE_ID,
     useValue: 'de-DE'
   }],

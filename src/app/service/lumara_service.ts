@@ -8,10 +8,10 @@ import {tap} from 'rxjs/internal/operators';
 
 @Injectable()
 export class LumaraService {
-  public url_zentrale = 'https://service.lumara.de/cmd?jsoncommand';
-  public url_zentrale_min = 'https://service.lumara.de';
-  // public url_zentrale = 'http://localhost:8990/cmd?jsoncommand';
-  // public url_zentrale_min = 'http://localhost:8990';
+  // public url_zentrale = 'https://service.lumara.de/cmd?jsoncommand';
+  // public url_zentrale_min = 'https://service.lumara.de';
+  public url_zentrale = 'http://localhost:8990/cmd?jsoncommand';
+  public url_zentrale_min = 'http://localhost:8990';
 
   private current_user_name = 'hpuser';
   private current_token = 'ä3##45?%$§$';
@@ -45,8 +45,7 @@ export class LumaraService {
   }
 
   getUserImageUrl(userid: number) {
-    const retval = this.url_zentrale + '&user=' + this.current_user_name + '&token=' + this.current_token +
-      '&modulename=Modules.Users.Service.UserService&commandname=GetUserImage&user_id=' + userid + '&UserImageSize=2';
+    const retval = this.url_zentrale + '&modulename=Modules.Users.Service.UserService&commandname=GetUserImage&user_id=' + userid + '&UserImageSize=0';
     return retval;
   }
 

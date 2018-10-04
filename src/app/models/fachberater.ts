@@ -12,3 +12,15 @@ export class FachberaterListItem {
   Mobil: string;
   EMail: string;
 }
+
+export class FachberaterSucheListItem {
+  ID: number;
+  DOID: number;
+  UserID: number;
+  Name: string;
+  PLZ: string;
+  Ort: string;
+  IsBZL: boolean;
+  IsGPL: boolean;
+  Distance: number;
+}
