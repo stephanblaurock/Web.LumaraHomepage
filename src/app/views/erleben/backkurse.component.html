@@ -1,3 +1,73 @@
-<p>
-  backkurse works!
-</p>
+<div id="pagebg-container">
+
+</div>
+
+<section>
+  <div class="container" style="padding-top: 40px;">
+    <!-- Backtermine suchen Kopf -->
+    <div class="row transsection">
+      <div class="container">
+
+
+      <div class="row">
+          <div class="col-12">
+              <h1 class="display-4">Backkurse finden</h1>
+              <p>Sie interessieren sich für die LUMARA-Produkte?<br/>
+                Finden Sie heraus, welche Backkurse in Ihrer Nähe stattfinden und melden Sie sich gleich an und erleben Sie LUMARA! Sie werden begeistert sein!<br/>
+                Geben Sie Ihren Ort ein um im Umkreis zu suchen, oder verwenden Sie ein Stichwort um ein bestimmtes Thema zu finden.
+              </p>
+            </div>
+      </div>
+      <form>
+      <div class="form-row align-items-center">
+        <div class="col-md-3">
+            <input type="text" class="form-control border-danger text-danger" placeholder="PLZ Ort" [(ngModel)]="myPLZ" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="col-auto">
+            oder
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control border-danger text-danger" placeholder="Stichwort" [(ngModel)]="stichwort" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-danger btn-red" (click)="searchBacktermine()"><span class="glyphicon-refresh-animate"><img src="/assets/icons/refresh.png" style="height:20px; width:20px;"></span> suchen</button>
+        </div>
+        <div *ngIf="searchResultCounter === 0" class="col-12">
+            <p class="mt-2 text-danger">Leider finden wir in Ihrem Umkreis keine LUMARA-Backkurse. Für weitere Informationen wenden Sie sich bitte an die Zentrale in Hainsfarth:
+              <strong>09082 1088</strong> oder <a href="mailto:info@lumara.de">info@lumara.de</a></p>
+          </div>
+      </div>
+    </form>
+    </div>
+    </div>
+    <!-- ENDE Backtermine suchen Kopf -->
+
+    <!-- Ergebnis Backkurssuche -->
+    <div *ngIf="searchResultCounter > 0" class="row transsection mt-2">
+      <div class="col-12">
+          <p class="mt-2 text-danger">folgende Backkurse haben wir <span *ngIf="withUmkreis">in Ihrer Nähe (Umkreis 80km Luftlinie)</span> gefunden:</p>
+      </div>
+
+      <div class="col-12">
+        <table class="table table-sm table-hover table-scrollable" style="line-height: 1;">
+          <tbody>
+            <tr *ngFor="let backtermin of backtermineList">
+                <td>{{backtermin.DateBegin | date:'dd. MMMM'}}<br/>{{backtermin.DateBegin | date:'HH:mm'}} Uhr
+                </td>
+                <td>
+                  {{backtermin.Caption}}
+                  <br />
+                  <span style="font-size:medium" class="text-muted">{{backtermin.Ort}} ({{backtermin.Distance | number:'1.0-0'}} km)</span><br />
+                  <a *ngIf="!backtermin.IsAusstellung" [routerLink]="['/userdata-backtermin-anmeldungen']" [queryParams]="{backterminid: backtermin.ID}">
+                    <span style="font-size:medium" [ngClass]="getAnzahlFreiClass(backtermin.AnzahlFrei)" >{{getAnzahlFreiText(backtermin.AnzahlFrei)}}</span>
+                  </a>
+                  <span *ngIf="backtermin.IsAusstellung" style="font-size:small" class="text-danger">Messe / Ausstellung</span>
+                </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- ENDE Ergebnis Backkurssuche -->
+  </div>
+</section>

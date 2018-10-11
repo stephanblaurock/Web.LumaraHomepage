@@ -18,6 +18,8 @@ export class Backtermin {
   Kosten: number;
   OrtID: number;
   MaxTeilnehmer: number;
+  AnzahlTeilnehmer: number;
+  IsAusstellung: boolean;
 }
 
 export class BackterminAnmeldung {
@@ -39,4 +41,15 @@ export class BackterminOrt {
   Caption: string;
   GeoLat: number;
   GeoLng: number;
+}
+
+export class BackterminSucheListItem {
+  ID: number;
+  Caption: string;
+  DateBegin: Date;
+  Ort: string;
+  AnzahlFrei: number;
+  LFBName: string;
+  Distance: number;
+  IsAusstellung: boolean;
 }

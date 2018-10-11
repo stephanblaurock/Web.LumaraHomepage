@@ -12,12 +12,14 @@ export class LumaraServiceCommands {
     cmd.addParameter('UmkreisDistance', umkreisDistance);
     return cmd;
   }
-  public static SearchBacktermine(plz: string, ort: string): JsonCommand {
+  public static SearchBacktermine(stichwort: string, withUmkreis: boolean, myPLZ: string, umkreisDistance: number): JsonCommand {
     const cmd = new JsonCommand();
     cmd.ModuleName = 'Modules.Lumara.Base.Service.BaseService';
     cmd.CommandName = 'SearchBacktermine';
-    cmd.addParameter('PLZ', plz);
-    cmd.addParameter('Ort', ort);
+    cmd.addParameter('Stichwort', stichwort);
+    cmd.addParameter('WithUmkreis', withUmkreis);
+    cmd.addParameter('MyPLZ', myPLZ);
+    cmd.addParameter('UmkreisDistance', umkreisDistance);
     return cmd;
   }
   public static UpdateBackterminAnmeldung(anmeldung: BackterminAnmeldung): JsonCommand {

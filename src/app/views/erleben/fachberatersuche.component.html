@@ -20,19 +20,19 @@
       </div>
       <div class="form-row align-items-center">
         <div class="col-md-3">
-            <input type="text" class="form-control border-danger" placeholder="PLZ Ort" [(ngModel)]="myPLZ">
+            <input type="text" class="form-control border-danger text-danger" placeholder="PLZ Ort" [(ngModel)]="myPLZ">
         </div>
         <div class="col-auto">
             oder
         </div>
         <div class="col-md-3">
-            <input type="text" class="form-control border-danger" placeholder="Stichwort" [(ngModel)]="stichwort">
+            <input type="text" class="form-control border-danger text-danger" placeholder="Stichwort" [(ngModel)]="stichwort">
         </div>
         <div class="col-auto">
-            <button type="submit" class="btn btn-success" (click)="searchFachberater()"><span class="glyphicon-refresh-animate"><img src="/assets/icons/refresh.png" style="height:20px; width:20px;"></span> suchen</button>
+            <button type="submit" class="btn btn-danger btn-red" (click)="searchFachberater()"><span class="glyphicon-refresh-animate"><img src="/assets/icons/refresh.png" style="height:20px; width:20px;"></span> suchen</button>
         </div>
         <div *ngIf="searchResultCounter === 0" class="col-12">
-            <p class="mt-2 text-red">Leider finden wir in Ihrem Umkreis keine LUMARA-Fachberaterin. Für weitere Informationen wenden Sie sich bitte an die Zentrale in Hainsfarth:
+            <p class="mt-2 text-danger">Leider finden wir in Ihrem Umkreis keine LUMARA-Fachberaterin. Für weitere Informationen wenden Sie sich bitte an die Zentrale in Hainsfarth:
               <strong>09082 1088</strong> oder <a href="mailto:info@lumara.de">info@lumara.de</a></p>
           </div>
       </div>
@@ -43,7 +43,7 @@
     <!-- Ergebnis Fachberatersuche -->
     <div *ngIf="searchResultCounter > 0" class="row transsection mt-2">
       <div class="col-12">
-          <p class="mt-2">folgende Beraterinnen haben wir <span *ngIf="withUmkreis">in Ihrer Nähe (Umkreis 80km Luftlinie)</span> gefunden:</p>
+          <p class="mt-2 text-danger">folgende Beraterinnen haben wir <span *ngIf="withUmkreis">in Ihrer Nähe (Umkreis 80km Luftlinie)</span> gefunden:</p>
       </div>
 
 
