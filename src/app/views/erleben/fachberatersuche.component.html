@@ -18,15 +18,16 @@
               </p>
             </div>
       </div>
+      <form>
       <div class="form-row align-items-center">
         <div class="col-md-3">
-            <input type="text" class="form-control border-danger text-danger" placeholder="PLZ Ort" [(ngModel)]="myPLZ">
+            <input type="text" class="form-control border-danger text-danger" placeholder="PLZ Ort" [(ngModel)]="myPLZ"  [ngModelOptions]="{standalone: true}">
         </div>
         <div class="col-auto">
             oder
         </div>
         <div class="col-md-3">
-            <input type="text" class="form-control border-danger text-danger" placeholder="Stichwort" [(ngModel)]="stichwort">
+            <input type="text" class="form-control border-danger text-danger" placeholder="Stichwort" [(ngModel)]="stichwort"  [ngModelOptions]="{standalone: true}">
         </div>
         <div class="col-auto">
             <button type="submit" class="btn btn-danger btn-red" (click)="searchFachberater()"><span class="glyphicon-refresh-animate"><img src="/assets/icons/refresh.png" style="height:20px; width:20px;"></span> suchen</button>
@@ -36,6 +37,7 @@
               <strong>09082 1088</strong> oder <a href="mailto:info@lumara.de">info@lumara.de</a></p>
           </div>
       </div>
+      </form>
     </div>
     </div>
     <!-- ENDE Fachberatersuche-Kopf -->
@@ -50,7 +52,7 @@
 
       <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let fb of fachberaterList">
         <div class="card mb-4 bg-red text-center">
-          <a [routerLink]="['/gallery']">
+          <a [routerLink]="['/fachberater']" [queryParams]="{fbid: fb.ID}">
             <img class="card-img-top img-fluid" [src]="getFachberaterImageUrl(fb.UserID)" alt="Fachberater" style="max-height: 150px; max-width: 150px;">
             <div class="card-block text-center">
               <h3 class="card-title text-light">{{fb.Name}}</h3>

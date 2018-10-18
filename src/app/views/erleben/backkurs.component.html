@@ -1,0 +1,45 @@
+<div id="pagebg-container">
+
+</div>
+
+<section>
+  <div class="container" style="padding-top: 40px;">
+    <div class="row transsection">
+      <div *ngIf="currentBacktermin" class="col-12">
+        <h1 *ngIf="!currentBacktermin.IsAusstellung" class="display-4">Backkurs</h1>
+        <h1 *ngIf="currentBacktermin.IsAusstellung" class="display-4">Messe / Ausstellung</h1>
+        <table>
+          <tr>
+            <td><span class="text-danger">Thema: </span></td>
+            <td class="pl-2"> {{currentBacktermin.Caption}}</td>
+          </tr>
+          <tr>
+            <td><span class="text-danger">Fachberaterin: </span></td>
+            <td class="pl-2"> {{currentBacktermin.Username}}</td>
+          </tr>
+          <tr>
+            <td><span class="text-danger">Beginn? </span></td>
+            <td class="pl-2"> {{currentBacktermin.DateBegin | date:'dd. MMMM yyyy HH:mm'}}</td>
+          </tr>
+          <tr *ngIf="currentBacktermin.IsAusstellung">
+            <td><span class="text-danger">Ende? </span></td>
+            <td class="pl-2"> {{currentBacktermin.DateBegin | date:'dd. MMMM yyyy HH:mm'}}</td>
+          </tr>
+          <tr *ngIf="!currentBacktermin.IsAusstellung">
+            <td><span class="text-danger">Dauer: </span></td>
+            <td class="pl-2"> {{currentBacktermin.Dauer}}</td>
+          </tr>
+          <tr>
+              <td><span class="text-danger">Wo? </span></td>
+              <td class="pl-2"> {{currentBacktermin.Adresse}}</td>
+            </tr>
+          <tr>
+              <td><span class="text-danger">Kosten: </span></td>
+              <td class="pl-2"> {{currentBacktermin.Kosten}}</td>
+            </tr>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</section>

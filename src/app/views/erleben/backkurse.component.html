@@ -21,16 +21,16 @@
       <form>
       <div class="form-row align-items-center">
         <div class="col-md-3">
-            <input type="text" class="form-control border-danger text-danger" placeholder="PLZ Ort" [(ngModel)]="myPLZ" [ngModelOptions]="{standalone: true}">
+            <input type="text" class="form-control border-danger text-danger mb-2" placeholder="PLZ Ort" [(ngModel)]="myPLZ" [ngModelOptions]="{standalone: true}">
         </div>
         <div class="col-auto">
             oder
         </div>
         <div class="col-md-3">
-            <input type="text" class="form-control border-danger text-danger" placeholder="Stichwort" [(ngModel)]="stichwort" [ngModelOptions]="{standalone: true}">
+            <input type="text" class="form-control border-danger text-danger mb-2" placeholder="Stichwort" [(ngModel)]="stichwort" [ngModelOptions]="{standalone: true}">
         </div>
         <div class="col-auto">
-            <button type="submit" class="btn btn-danger btn-red" (click)="searchBacktermine()"><span class="glyphicon-refresh-animate"><img src="/assets/icons/refresh.png" style="height:20px; width:20px;"></span> suchen</button>
+            <button type="submit" class="btn btn-danger btn-red mb-2" (click)="searchBacktermine()"><span class="glyphicon-refresh-animate"><img src="/assets/icons/refresh.png" style="height:20px; width:20px;"></span> suchen</button>
         </div>
         <div *ngIf="searchResultCounter === 0" class="col-12">
             <p class="mt-2 text-danger">Leider finden wir in Ihrem Umkreis keine LUMARA-Backkurse. Für weitere Informationen wenden Sie sich bitte an die Zentrale in Hainsfarth:
@@ -52,17 +52,20 @@
         <table class="table table-sm table-hover table-scrollable" style="line-height: 1;">
           <tbody>
             <tr *ngFor="let backtermin of backtermineList">
-                <td>{{backtermin.DateBegin | date:'dd. MMMM'}}<br/>{{backtermin.DateBegin | date:'HH:mm'}} Uhr
+              <a [routerLink]="['/backkurs']" [queryParams]="{kursid: backtermin.ID}">
+                <td>
+                  {{backtermin.DateBegin | date:'dd. MMMM'}}<br/>{{backtermin.DateBegin | date:'HH:mm'}} Uhr
                 </td>
                 <td>
                   {{backtermin.Caption}}
                   <br />
-                  <span style="font-size:medium" class="text-muted">{{backtermin.Ort}} ({{backtermin.Distance | number:'1.0-0'}} km)</span><br />
+                  <span style="font-size:medium" class="text-muted">{{backtermin.Ort}} <span *ngIf="withUmkreis">({{backtermin.Distance | number:'1.0-0'}} km)</span></span><br />
                   <a *ngIf="!backtermin.IsAusstellung" [routerLink]="['/userdata-backtermin-anmeldungen']" [queryParams]="{backterminid: backtermin.ID}">
                     <span style="font-size:medium" [ngClass]="getAnzahlFreiClass(backtermin.AnzahlFrei)" >{{getAnzahlFreiText(backtermin.AnzahlFrei)}}</span>
                   </a>
                   <span *ngIf="backtermin.IsAusstellung" style="font-size:small" class="text-danger">Messe / Ausstellung</span>
                 </td>
+              </a>
             </tr>
           </tbody>
         </table>

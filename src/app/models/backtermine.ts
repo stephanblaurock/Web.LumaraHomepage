@@ -22,6 +22,16 @@ export class Backtermin {
   IsAusstellung: boolean;
 }
 
+export class BackterminProfilPageItem {
+  ID: number;
+  PersonalakteID: number;
+  Caption: string;
+  DateBegin: Date;
+  Ort: string;
+  AnzahlTeilnehmer: number;
+  IsAusstellung: boolean;
+}
+
 export class BackterminAnmeldung {
   ID: number;
   BackterminID: number;
@@ -51,5 +61,21 @@ export class BackterminSucheListItem {
   AnzahlFrei: number;
   LFBName: string;
   Distance: number;
+  IsAusstellung: boolean;
+}
+
+export class BackterminPageModel {
+  ID: number;
+  PersonalakteID: number;
+  UserID: number;
+  Username: string;
+  Anstellung: number;
+  Caption: string;
+  DateBegin: Date;
+  DateEnd: Date;
+  Dauer: string;
+  Kosten: number;
+  Adresse: string;
+  MaxTeilnehmer: number;
   IsAusstellung: boolean;
 }

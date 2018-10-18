@@ -1,0 +1,21 @@
+<div *ngIf="blogPost" class="row transsection">
+    <div class="col-md-12">
+      <div class="postcontent">
+        <!-- ATTACHMENTS -->
+        <div style="float:right;max-width:35%">
+          <div *ngFor="let att of blogPost.Attachments" style="background-color:rgb(240,240,240); margin-bottom:2px;">
+            <a [href]="GetFileStoreFileUrl(att.FileID, att.Filename)">
+              <img [src]="GetIconUrl(att.FileExtension)" style="vertical-align: middle; background-color:transparent;" />
+              <span style="font-size:11pt;">{{att.Filename}}</span>
+            </a>
+          </div>
+        </div>
+        <!-- MARKDOWN -->
+        <section class="markdown">
+          <!-- div markdown [data]="blogPost.Body"></div -->
+          <div [innerHTML]="blogPost.Body"></div>
+
+        </section>
+      </div>
+    </div>
+  </div>

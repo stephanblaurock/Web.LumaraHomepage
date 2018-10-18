@@ -1,7 +1,7 @@
 /*** Allgemein ***/
 body, p, button, input {
-  font-family: 'Oregano';
-  font-size: x-large;
+  font-family: 'Roboto';
+  font-size: large;
 }
 
 .form-control, .btn {
@@ -22,7 +22,7 @@ h1 {
 h2, h3, h4, h5, h6, .font-alt {
   font-family: 'Oregano';
   font-weight:300;
-  color: #BE392B;
+  color: #AB172E;
 }
 
 main {
@@ -31,6 +31,14 @@ main {
 
 ul {
   margin-left: 15px;
+}
+
+.lumara-image-border {
+  padding: 2px;
+  border-width: 2px;
+  border-color: #AB172E;
+  border-radius: 3px;
+  border-style: solid;
 }
 
 /*** Navbar ***/
@@ -117,8 +125,8 @@ ul {
 /*** schmale Darstellung ***/
 @media screen and (max-width: 900px) {
   .postcontent {
-    padding-top: 80px;
-    padding-left: 0px;
+    /* padding-top: 80px;*/
+    /*padding-left: 0px;*/
   }
   .postcontent ul {
     margin-left: 15px;
@@ -134,3 +142,89 @@ ul {
   }
 }
 */
+
+/*** BLOG-POSTS ***/
+/*** News-Posts ***/
+.postcontent {
+  padding-top: 0px;
+  /*padding-left: 90px;*/
+}
+.postcontent ul {
+  margin-left: 15px;
+}
+.postcontent ol {
+  margin-left: 15px;
+}
+.postcontent h1 {
+  color: brown;
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.postcontent h2 {
+  border-bottom: 1px solid #b0aeae;
+  text-transform: uppercase;
+}
+
+.postcontent tr {
+  vertical-align: top;
+}
+.postcontent code {
+  color: black;
+  background-color: #eeeeee;
+  border-radius: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-shadow: 0px 0px;
+}
+.postcontent pre {
+  color: black;
+  background-color: #eeeeee;
+  border-radius: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-shadow: 0px 0px;
+}
+  /* ein Stern = fett schreiben */
+ .postcontent em {
+    font-weight: bold;
+    font-style: normal;
+}
+/* zwei Sterne = hervorheben */
+.postcontent strong {
+    color: brown;
+}
+
+.postcontent .postinfo {
+    color: gray;
+    line-height: 1em;
+    font-size:x-small;
+    margin-top: 3px;
+    padding-top: 0px;
+    margin-bottom: 15px;
+}
+.postcontent .postinfo strong {
+  color: gray;
+}
+
+.postcontent .masterimage {
+  float: right;
+  width: 50%;
+  margin: 5px;
+
+  padding: 2px;
+  border-width: 2px;
+  border-color: #AB172E;
+  border-radius: 3px;
+  border-style: solid;
+}
+
+.markdown img {
+  max-width: 100%;
+
+}
+.markdown .card-img-top {
+  height:100px;
+  object-fit: cover;
+}
+

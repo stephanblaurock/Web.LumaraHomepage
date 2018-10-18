@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LumaraService } from 'src/app/service/lumara_service';
 
 @Component({
   selector: 'app-rezept',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class RezeptComponent implements OnInit {
-
-  constructor() { }
+  currentPostID = -1;
+  constructor(
+    private lumaraService: LumaraService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.currentPostID = this.route.snapshot.queryParams.blogpostid;
   }
 
 }

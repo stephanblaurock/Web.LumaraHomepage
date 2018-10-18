@@ -1,3 +1,43 @@
-<p>
-  rezepte works!
-</p>
+<div id="pagebg-container">
+
+</div>
+
+<section>
+  <div class="container" style="padding-top: 40px;">
+    <!-- Backtermine suchen Kopf -->
+    <div class="row transsection">
+
+
+      <div class="col-12">
+        <h1 class="display-4">Rezepte</h1>
+        <p>Auf dieser Seite möchten wir Ihnen ein paar leckere Rezepte aus unseren Rezeptewelten vorstellen</p>
+        <p>Viel Spaß beim nachbacken und genießen ;-)</p>
+      </div>
+    </div>
+
+
+    <div class="row transsection mt-2" *ngFor="let rezepteGroup of rezepteGroupItems">
+      <div class="col-12">
+          <h1 class="mt-2">{{rezepteGroup.Caption}}</h1>
+      </div>
+
+      <!-- Rezepte-Card -->
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12" *ngFor="let rezept of rezepteGroup.Rezepte">
+        <div class="card mb-4 bg-red">
+          <a [routerLink]="['/rezept']" [queryParams]="{blogpostid: rezept.ID}">
+            <img class="card-img-top img-fluid" [src]="rezept.ImageUrl" alt="Galerie">
+            <div class="card-block text-center">
+              <h4 class="card-title text-light">{{rezept.Caption}}</h4>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- Ende Rezepte-Card -->
+    </div>
+    <!-- Ende Row -->
+  </div>
+  <!-- Ende Container -->
+
+  <!-- Ende Row Transsection -->
+
+</section>

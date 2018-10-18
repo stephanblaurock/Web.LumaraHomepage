@@ -27,6 +27,8 @@ import { ImpressumComponent } from './views/allgemein/impressum.component';
 import { DatenschutzComponent } from './views/allgemein/datenschutz.component';
 import { LumaraService } from './service/lumara_service';
 import { FachberaterProfilComponent } from './views/erleben/fachberater-profil.component';
+import { BackkursComponent } from './views/erleben/backkurs.component';
+import { BlogPostComponent } from './views/allgemein/blog-post.component';
 
 registerLocaleData(localeDe);
 
@@ -37,10 +39,13 @@ const APP_ROUTES: Routes = [
   {path: 'ueberuns', component: UeberUnsComponent},
   {path: 'produktkatalog', component: ProduktkatalogComponent},
   {path: 'backkurse', component: BackkurseComponent},
+  {path: 'backkurs', component: BackkursComponent},
   {path: 'fachberatersuche', component: FachberatersucheComponent},
+  {path: 'fachberater', component: FachberaterProfilComponent},
   {path: 'gastgeber', component: GastgeberComponent},
   {path: 'teammitglied', component: TeammitgliedComponent},
-  {path: 'rezepte', component: RezepteComponent}
+  {path: 'rezepte', component: RezepteComponent},
+  {path: 'rezept', component: RezeptComponent}
 ];
 
 @NgModule({
@@ -63,7 +68,9 @@ const APP_ROUTES: Routes = [
     RezeptComponent,
     ImpressumComponent,
     DatenschutzComponent,
-    FachberaterProfilComponent
+    FachberaterProfilComponent,
+    BackkursComponent,
+    BlogPostComponent
   ],
   imports: [
     BrowserModule,
