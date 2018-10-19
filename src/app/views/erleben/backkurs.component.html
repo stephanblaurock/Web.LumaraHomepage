@@ -11,7 +11,7 @@
         <table>
           <tr>
             <td><span class="text-danger">Thema: </span></td>
-            <td class="pl-2"> {{currentBacktermin.Caption}}</td>
+            <td class="pl-2"> <strong>{{currentBacktermin.Caption}}</strong></td>
           </tr>
           <tr>
             <td><span class="text-danger">Fachberaterin: </span></td>
@@ -35,11 +35,17 @@
             </tr>
           <tr>
               <td><span class="text-danger">Kosten: </span></td>
-              <td class="pl-2"> {{currentBacktermin.Kosten}}</td>
+              <td class="pl-2"> {{currentBacktermin.Kosten}} €</td>
             </tr>
         </table>
 
+        <button type="button" class="btn btn-danger btn-red mb-2 mt-2" (click)="showBuchungsFormular()">Backkurs buchen</button>
       </div>
+    </div>
+
+    <!-- Buchungsformular -->
+    <div *ngIf="showBuchungsFormular" class="row transsection">
+
     </div>
   </div>
 </section>

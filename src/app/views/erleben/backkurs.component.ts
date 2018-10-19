@@ -12,6 +12,7 @@ import { LumaraServiceCommands } from '../../service/lumara_service_commands';
 export class BackkursComponent implements OnInit {
   currentBackterminID = 0;
   currentBacktermin: BackterminPageModel = undefined;
+  buchungsFormularVisible = false;
 
   constructor(private lumaraService: LumaraService,
     private router: Router,
@@ -37,5 +38,9 @@ export class BackkursComponent implements OnInit {
           // this.router.navigate(['/login']);
         }
       });
+  }
+
+  showBuchungsFormular() {
+    this.buchungsFormularVisible = true;
   }
 }

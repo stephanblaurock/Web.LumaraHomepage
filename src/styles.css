@@ -4,6 +4,10 @@ body, p, button, input {
   font-size: large;
 }
 
+a, a:hover {
+  color: #AB172E;
+}
+
 .form-control, .btn {
   font-size: x-large;
 }
@@ -40,6 +44,18 @@ ul {
   border-radius: 3px;
   border-style: solid;
 }
+
+.backkurs-item {
+  padding: 10px;
+  border-width: 2px;
+  border-color: #AB172E;
+  border-radius: 3px;
+  border-style: solid;
+}
+.backkurs-item:hover {
+  background-color: lightgray;
+}
+
 
 /*** Navbar ***/
 #home .logo {

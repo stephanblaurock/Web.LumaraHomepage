@@ -70,9 +70,9 @@ export class BackkurseComponent implements OnInit {
   }
   getAnzahlFreiClass(anzahlFrei: number) {
     if (anzahlFrei === 0) {
-      return 'badge-danger';
+      return 'badge badge-danger';
     } else if (anzahlFrei < 5) {
-      return 'badge-warning';
+      return 'badge badge-warning';
     }
     return 'text-mute';
   }

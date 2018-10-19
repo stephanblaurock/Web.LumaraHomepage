@@ -49,27 +49,18 @@
       </div>
 
       <div class="col-12">
-        <table class="table table-sm table-hover table-scrollable" style="line-height: 1;">
-          <tbody>
-            <tr *ngFor="let backtermin of backtermineList">
-              <a [routerLink]="['/backkurs']" [queryParams]="{kursid: backtermin.ID}">
-                <td>
-                  {{backtermin.DateBegin | date:'dd. MMMM'}}<br/>{{backtermin.DateBegin | date:'HH:mm'}} Uhr
-                </td>
-                <td>
-                  {{backtermin.Caption}}
-                  <br />
-                  <span style="font-size:medium" class="text-muted">{{backtermin.Ort}} <span *ngIf="withUmkreis">({{backtermin.Distance | number:'1.0-0'}} km)</span></span><br />
-                  <a *ngIf="!backtermin.IsAusstellung" [routerLink]="['/userdata-backtermin-anmeldungen']" [queryParams]="{backterminid: backtermin.ID}">
-                    <span style="font-size:medium" [ngClass]="getAnzahlFreiClass(backtermin.AnzahlFrei)" >{{getAnzahlFreiText(backtermin.AnzahlFrei)}}</span>
-                  </a>
-                  <span *ngIf="backtermin.IsAusstellung" style="font-size:small" class="text-danger">Messe / Ausstellung</span>
-                </td>
-              </a>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+            <a [routerLink]="['/backkurs']" [queryParams]="{kursid: backtermin.ID}" style="color:black; text-decoration: none;"  *ngFor="let backtermin of backtermineList">
+              <div class="mb-2 backkurs-item"  >
+                <span class="badge badge-secondary">{{backtermin.DateBegin | date:'dd. MMMM'}} {{backtermin.DateBegin | date:'HH:mm'}} Uhr</span><br/>
+                <h2 style="line-height: 1">{{backtermin.Caption}} <span class="text-muted">mit {{backtermin.LFBName}}</span></h2>
+                <span style="font-size:medium" class="text-muted">{{backtermin.Ort}} <span *ngIf="withUmkreis">({{backtermin.Distance | number:'1.0-0'}} km)</span></span><br />
+                <span *ngIf="!backtermin.IsAusstellung" style="font-size:medium" [ngClass]="getAnzahlFreiClass(backtermin.AnzahlFrei)" >{{getAnzahlFreiText(backtermin.AnzahlFrei)}}</span>
+                <span *ngIf="backtermin.IsAusstellung" style="font-size:small" class="text-danger">Messe / Ausstellung</span>
+              </div>
+            </a>
+        </div>
+
+
     </div>
     <!-- ENDE Ergebnis Backkurssuche -->
   </div>
