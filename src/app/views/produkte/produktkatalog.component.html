@@ -1,3 +1,37 @@
-<p>
-  produktkatalog works!
-</p>
+<div id="pagebg-container">
+
+</div>
+
+<section>
+  <div class="container" style="padding-top: 40px;">
+    <!-- Produktgruppen suchen Kopf -->
+    <div class="row transsection">
+
+
+      <div class="col-12">
+        <h1 class="display-4">Produktkatalog</h1>
+      </div>
+    </div>
+
+
+    <div class="row transsection mt-2 pt-3">
+      <!-- Produktekategorie-Card -->
+      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-6" *ngFor="let artikelGroup of artikelGroups">
+        <div class="card mb-4 bg-red">
+          <a [routerLink]="['/produktkategorie']" [queryParams]="{artikelgruppeid: artikelGroup.ID}">
+            <img class="card-img-top img-fluid" [src]="getImageUrl(artikelGroup.ID)" alt="Produktgruppe">
+            <div class="card-block text-center">
+              <h4 class="card-title text-light">{{artikelGroup.Caption}}</h4>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- Ende Rezepte-Card -->
+    </div>
+    <!-- Ende Row -->
+  </div>
+  <!-- Ende Container -->
+
+  <!-- Ende Row Transsection -->
+
+</section>

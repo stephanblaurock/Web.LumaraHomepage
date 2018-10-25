@@ -38,6 +38,8 @@ const APP_ROUTES: Routes = [
   {path: 'backsystem', component: BacksystemComponent},
   {path: 'ueberuns', component: UeberUnsComponent},
   {path: 'produktkatalog', component: ProduktkatalogComponent},
+  {path: 'produktkategorie', component: ProduktkategorieComponent},
+  {path: 'produkt', component: ProduktComponent},
   {path: 'backkurse', component: BackkurseComponent},
   {path: 'backkurs', component: BackkursComponent},
   {path: 'fachberatersuche', component: FachberatersucheComponent},

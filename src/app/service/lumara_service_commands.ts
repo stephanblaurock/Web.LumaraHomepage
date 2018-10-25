@@ -50,4 +50,24 @@ export class LumaraServiceCommands {
     cmd.addParameter('BlogPostID', blogPostID);
     return cmd;
   }
+  public static GetArtikelgruppen(): JsonCommand {
+    const cmd = new JsonCommand();
+    cmd.ModuleName = 'Modules.Lumara.Base.Service.BaseService';
+    cmd.CommandName = 'GetArtikelgruppen';
+    return cmd;
+  }
+  public static GetArtikel(idMandant: number, showOnlineFilter: boolean, nichtLieferbarFilter: boolean, sonderpreisFilter: boolean,
+      artikelGruppe: number, changedSince: Date, returnLightObjects: boolean): JsonCommand {
+    const cmd = new JsonCommand();
+    cmd.ModuleName = 'Modules.Lumara.Base.Service.BaseService';
+    cmd.CommandName = 'GetArtikel';
+    cmd.addParameter('IDMandant', idMandant);
+    cmd.addParameter('ShowOnlineFilter', showOnlineFilter);
+    cmd.addParameter('NichtLieferbarFilter', nichtLieferbarFilter);
+    cmd.addParameter('SonderpreisFilter', sonderpreisFilter);
+    cmd.addParameter('ArtikelGruppe', artikelGruppe);
+    cmd.addParameter('ChangedSince', changedSince);
+    cmd.addParameter('ReturnLightObjects', returnLightObjects);
+    return cmd;
+  }
 }

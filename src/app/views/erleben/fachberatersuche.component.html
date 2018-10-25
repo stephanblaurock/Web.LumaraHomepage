@@ -53,7 +53,7 @@
       <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let fb of fachberaterList">
         <div class="card mb-4 bg-red text-center">
           <a [routerLink]="['/fachberater']" [queryParams]="{fbid: fb.ID}">
-            <img class="card-img-top img-fluid" [src]="getFachberaterImageUrl(fb.UserID)" alt="Fachberater" style="max-height: 150px; max-width: 150px;">
+            <img class="card-img-top rounded-circle" [src]="getFachberaterImageUrl(fb.UserID)" alt="Fachberater" style="height:250px; max-width: 250px; object-fit: cover;" >
             <div class="card-block text-center">
               <h3 class="card-title text-light">{{fb.Name}}</h3>
               <p *ngIf="fb.IsBZL" class="badge-dark">BEZIRKSLEITUNG</p>

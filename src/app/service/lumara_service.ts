@@ -45,7 +45,8 @@ export class LumaraService {
   }
 
   getUserImageUrl(userid: number) {
-    const retval = this.url_zentrale + '&modulename=Modules.Users.Service.UserService&commandname=GetUserImage&user_id=' + userid + '&UserImageSize=0';
+    // const retval = this.url_zentrale + '&modulename=Modules.Users.Service.UserService&commandname=GetUserImage&user_id=' + userid + '&UserImageSize=0';
+    const retval = 'https://onlineservice.lumara.de:443/imagecontroller/userimages/' + userid + '.jpg';
     return retval;
   }
 
