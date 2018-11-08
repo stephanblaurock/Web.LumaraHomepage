@@ -1,4 +1,4 @@
-import { BackterminProfilPageItem } from "./backtermine";
+import { BackterminProfilPageItem } from './backtermine';
 
 export class FachberaterListItem {
   ID: number;
@@ -33,6 +33,8 @@ export class FachberaterProfil {
   Caption: string;
   BeraterSeit: Date;
   Anstellung: number;
+  IsBZL: number;
+  IsGPL: number;
   Strasse: string;
   Ort: string;
   Telefon: string;

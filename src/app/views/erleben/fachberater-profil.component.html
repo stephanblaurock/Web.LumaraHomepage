@@ -1,3 +1,47 @@
-<p>
-  fachberater-profil works!
-</p>
+<div id="pagebg-container">
+
+</div>
+
+<section>
+  <div class="container" style="padding-top: 40px;">
+    <!-- Fachberater-Profil -->
+    <div *ngIf="fachberaterProfil" class="row transsection">
+      <div class="col-sm-12 col-md-4">
+        <img [src]="getFachberaterImageUrl(fachberaterProfil.UserID)" class="img-fluid lumara-image-border mt-2" >
+      </div>
+      <div class="col-sm-12 col-md-8">
+        <h1 class="display-4">{{fachberaterProfil.Caption}}</h1>
+        <p *ngIf="fachberaterProfil.IsBZL" class="badge-dark px-2">BEZIRKSLEITUNG</p>
+        <p *ngIf="fachberaterProfil.IsGPL" class="badge-secondary px-2">GRUPPENLEITUNG</p>
+        <p *ngIf="fachberaterProfil.Telefon">Telefon: <strong>{{fachberaterProfil.Telefon}}</strong></p>
+        <p *ngIf="fachberaterProfil.Mobil">Mobil: <strong>{{fachberaterProfil.Mobil}}</strong></p>
+        <p *ngIf="fachberaterProfil.EMail">E-Mail: <strong>{{fachberaterProfil.EMail}}</strong></p>
+      </div>
+    </div>
+    <!-- Ende Fachberater-Profil-Kopf-->
+
+    <!-- Ergebnis Backkurssuche -->
+    <div *ngIf="fachberaterProfil && fachberaterProfil.Backtermine" class="row transsection mt-2">
+      <div class="col-12">
+          <h1 class="display-4">meine Backtermine</h1>
+      </div>
+
+      <div class="col-12">
+        <a [routerLink]="['/backkurs']" [queryParams]="{kursid: backtermin.ID}" style="color:black; text-decoration: none;"
+          *ngFor="let backtermin of fachberaterProfil.Backtermine">
+          <div class="mb-2 backkurs-item">
+            <span class="badge badge-secondary">{{backtermin.DateBegin | date:'dd. MMMM'}} {{backtermin.DateBegin |
+              date:'HH:mm'}} Uhr</span><br />
+            <h2 style="line-height: 1">{{backtermin.Caption}} <!--span class="text-muted">mit {{backtermin.LFBName}}</span--></h2>
+            <span style="font-size:medium" class="text-muted">{{backtermin.Ort}}</span><br />
+            <span *ngIf="!backtermin.IsAusstellung" style="font-size:medium" [ngClass]="getAnzahlFreiClass(backtermin.AnzahlFrei)">{{getAnzahlFreiText(backtermin.AnzahlFrei)}}</span>
+            <span *ngIf="backtermin.IsAusstellung" style="font-size:small" class="text-danger">Messe / Ausstellung</span>
+          </div>
+        </a>
+      </div>
+
+
+    </div>
+    <!-- ENDE Ergebnis Backkurssuche -->
+  </div>
+</section>

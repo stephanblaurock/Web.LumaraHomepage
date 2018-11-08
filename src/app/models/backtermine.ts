@@ -30,6 +30,8 @@ export class BackterminProfilPageItem {
   Ort: string;
   AnzahlTeilnehmer: number;
   IsAusstellung: boolean;
+  LFBName: string;
+  AnzahlFrei: number;
 }
 
 export class BackterminAnmeldung {
@@ -77,5 +79,6 @@ export class BackterminPageModel {
   Kosten: number;
   Adresse: string;
   MaxTeilnehmer: number;
+  AnzahlTeilnehmer: number;
   IsAusstellung: boolean;
 }

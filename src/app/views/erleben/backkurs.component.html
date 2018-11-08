@@ -10,88 +10,124 @@
         <h1 *ngIf="currentBacktermin.IsAusstellung" class="display-4">Messe / Ausstellung</h1>
         <table>
           <tr>
-            <td><span class="text-danger">Thema: </span></td>
+            <td><span class="text-lumara">Thema: </span></td>
             <td class="pl-2"> <strong>{{currentBacktermin.Caption}}</strong></td>
           </tr>
           <tr>
-            <td><span class="text-danger">Fachberaterin: </span></td>
+            <td><span class="text-lumara">Fachberaterin: </span></td>
             <td class="pl-2"> {{currentBacktermin.Username}}</td>
           </tr>
           <tr>
-            <td><span class="text-danger">Beginn? </span></td>
+            <td><span class="text-lumara">Beginn? </span></td>
             <td class="pl-2"> {{currentBacktermin.DateBegin | date:'dd. MMMM yyyy HH:mm'}}</td>
           </tr>
           <tr *ngIf="currentBacktermin.IsAusstellung">
-            <td><span class="text-danger">Ende? </span></td>
+            <td><span class="text-lumara">Ende? </span></td>
             <td class="pl-2"> {{currentBacktermin.DateBegin | date:'dd. MMMM yyyy HH:mm'}}</td>
           </tr>
           <tr *ngIf="!currentBacktermin.IsAusstellung">
-            <td><span class="text-danger">Dauer: </span></td>
+            <td><span class="text-lumara">Dauer: </span></td>
             <td class="pl-2"> {{currentBacktermin.Dauer}}</td>
           </tr>
           <tr>
-              <td><span class="text-danger">Wo? </span></td>
-              <td class="pl-2"> {{currentBacktermin.Adresse}}</td>
-            </tr>
+            <td><span class="text-lumara">Wo? </span></td>
+            <td class="pl-2"> {{currentBacktermin.Adresse}}</td>
+          </tr>
           <tr>
-              <td><span class="text-danger">Kosten: </span></td>
-              <td class="pl-2"> {{currentBacktermin.Kosten}} €</td>
-            </tr>
+            <td><span class="text-lumara">Kosten: </span></td>
+            <td class="pl-2"> {{currentBacktermin.Kosten | number:'1.2-2':'de'}} €</td>
+          </tr>
         </table>
+        <div *ngIf="showAusgebuchtText" class="alert alert-danger" role="alert">
+            <span>Backkurs ist leider ausgebucht. Es können keine Buchungen mehr angenommen werden, sorry!</span>
+          </div>
 
-        <button *ngIf="!showBuchungsFormular" type="button" class="btn btn-danger btn-red mb-2 mt-2" (click)="showBuchungsFormular()">Backkurs buchen</button>
+        <button *ngIf="showButtonBuchungsformular" type="button" class="btn btn-danger btn-red mb-2 mt-2" (click)="showBuchungsFormular()">Backkurs
+          buchen</button>
+
+      </div>
+
+          <div class="col-sm-10">
+            <button type="button" class="btn mb-2 mt-2" (click)="cancel()">zurück zu den Backkursen</button>
+          </div>
+
+    </div>
+
+    <!-- Buchungsformular -->
+    <div *ngIf="buchungsFormularVisible" class="row transsection mt-3">
+      <div class="col-12">
+        <h1 class="display-4">Anmeldung</h1><br />
+        <div>
+          <form>
+            <!-- Name -->
+            <div class="form-group row">
+              <label for="name" class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" placeholder="Name" [(ngModel)]="form_name" [ngModelOptions]="{standalone: true}">
+              </div>
+            </div>
+            <!-- EMail -->
+            <div class="form-group row">
+              <label for="email" class="col-sm-2 col-form-label">E-Mail</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="email" placeholder="E-Mail" [(ngModel)]="form_email" [ngModelOptions]="{standalone: true}">
+              </div>
+            </div>
+            <!-- Telefon -->
+            <div class="form-group row">
+              <label for="telefon" class="col-sm-2 col-form-label">Telefon</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="telefon" placeholder="Telefon" [(ngModel)]="form_telefon" [ngModelOptions]="{standalone: true}">
+              </div>
+            </div>
+            <!-- PLZ -->
+            <div class="form-group row">
+              <label for="plz" class="col-sm-2 col-form-label">Postleitzahl</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="plz" placeholder="PLZ" [(ngModel)]="form_plz" [ngModelOptions]="{standalone: true}">
+              </div>
+            </div>
+            <!-- PLZ -->
+            <div class="form-group row">
+              <label for="teilnehmerzahl" class="col-sm-2 col-form-label">Teilnehmerzahl</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" id="teilnehmerzahl" placeholder="Teilnehmerzahl" [(ngModel)]="form_teilnehmer_anzahl" [ngModelOptions]="{standalone: true}">
+              </div>
+            </div>
+             <!-- Datenschutz -->
+             <div class="form-group row">
+                <div class="form-check">
+                  <input
+                          type="checkbox"
+                          class="form-check-input mx-1"
+                          id="datenschutz"
+                          [(ngModel)]="form_datenschutz"
+                          [ngModelOptions]="{ standalone: true }"
+                        >
+
+                <label for="datenschutz" class="form-check-label mx-4">ich bin einverstanden, daß meine Daten zum Zwecke der Abwicklung dieses Backkurses gespeichert werden</label>
+                </div>
+              </div>
+
+            <div class="row mx-1">
+                <div *ngIf="errortext" class="alert alert-danger" role="alert">
+                    <span>{{errortext}}</span>
+                  </div>
+                  <div *ngIf="successtext" class="alert alert-success" role="alert">
+                      <span>{{successtext}}</span>
+                    </div>
+            </div>
+            <div *ngIf="!successtext" class="form-group row">
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-danger btn-red mb-2 mt-2" (click)="saveAnmeldung()">verbindlich anmelden</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
       </div>
     </div>
 
 
-    <!-- Buchungsformular -->
-    <div *ngIf="showBuchungsFormular" class="row transsection mt-3 mx-0 px-0">
-      <h1>Anmeldung</h1><br/>
-      <div>
-      <form>
-        <!-- Name -->
-        <div class="form-group row mx-2">
-          <label for="name" class="col-sm-2 col-form-label">Name</label>
-          <div class="col-sm-10">
-              <input type="text" class="form-control" id="name" placeholder="Name">
-            </div>
-        </div>
-        <!-- EMail -->
-        <div class="form-group row mx-2">
-            <label for="email" class="col-sm-2 col-form-label">E-Mail</label>
-            <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" placeholder="E-Mail">
-              </div>
-          </div>
-        <!-- Telefon -->
-        <div class="form-group row mx-2">
-            <label for="telefon" class="col-sm-2 col-form-label">E-Mail</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="telefon" placeholder="Telefon">
-              </div>
-          </div>
-        <!-- PLZ -->
-        <div class="form-group row mx-2">
-            <label for="plz" class="col-sm-2 col-form-label">Postleitzahl</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="plz" placeholder="PLZ">
-              </div>
-          </div>
-        <!-- PLZ -->
-        <div class="form-group row mx-2">
-            <label for="teilnehmerzahl" class="col-sm-2 col-form-label">Teilnehmerzahl</label>
-            <div class="col-sm-10">
-                <input type="number" class="form-control" id="teilnehmerzahl" placeholder="Teilnehmerzahl">
-              </div>
-          </div>
-
-          <div class="form-group row mx-2">
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-danger btn-red mb-2 mt-2">verbindlich anmelden</button>
-              </div>
-            </div>
-      </form>
-    </div>
-    </div>
   </div>
 </section>

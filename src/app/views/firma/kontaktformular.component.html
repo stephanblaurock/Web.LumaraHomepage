@@ -1,3 +1,127 @@
-<p>
-  kontaktformular works!
-</p>
+<div id="pagebg-container"></div>
+
+<section>
+  <div class="container" style="padding-top: 40px;">
+    <!-- Backtermine suchen Kopf -->
+
+    <div class="row transsection">
+      <div class="col-12">
+        <h1 class="display-4">LUMARA kontaktieren</h1>
+        <p>Sind Sie interessiert an unseren Produkten, möchten als Gastgeber für einen Backabend einladen oder haben Sie sonstige Fragen,
+          so können Sie uns entweder direkt anrufen oder uns eine Nachricht über untenstehendes Formular zusenden.
+        </p>
+
+        <span style="font-size: x-large">Telefon: <span class="text-lumara">09082 1088</span></span>
+        <span class="text-mute">&nbsp;&nbsp;(Montag bis Donnerstag: 8:00 - 12:00 und 13:00 - 16:00
+        Freitag von 8:00 - 12:00)</span>
+        <p style="font-size: x-large">E-Mail: <a style="font-size: x-large" class="text-lumara" href="mailto:info@lumara.de">info@lumara.de</a></p>
+      </div>
+    </div>
+
+    <!-- Buchungsformular -->
+    <div class="row transsection mt-3 pt-3">
+      <div class="col-12">
+        <h1>Nachricht verfassen</h1>
+        <br />
+        <div>
+          <form>
+            <!-- Name -->
+            <div class="form-group row">
+              <label for="name" class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Name"
+                  [(ngModel)]="form_name"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+            <!-- EMail -->
+            <div class="form-group row">
+              <label for="email" class="col-sm-2 col-form-label">E-Mail</label>
+              <div class="col-sm-10">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="E-Mail"
+                  [(ngModel)]="form_email"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+            <!-- Telefon -->
+            <div class="form-group row">
+              <label for="telefon" class="col-sm-2 col-form-label"
+                >Telefon</label
+              >
+              <div class="col-sm-10">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="telefon"
+                  placeholder="Telefon (optional)"
+                  [(ngModel)]="form_telefon"
+                  [ngModelOptions]="{ standalone: true }"
+                />
+              </div>
+            </div>
+            <!-- Telefon -->
+            <div class="form-group row">
+              <label for="content" class="col-sm-2 col-form-label"
+                >Nachricht</label
+              >
+              <div class="col-sm-10">
+                <textarea
+                  rows="5"
+                  class="form-control"
+                  id="content"
+                  placeholder="Nachricht"
+                  [(ngModel)]="form_content"
+                  [ngModelOptions]="{ standalone: true }"
+                ></textarea>
+              </div>
+            </div>
+            <!-- Datenschutz -->
+            <div class="form-group row">
+                <div class="form-check">
+                  <input
+                          type="checkbox"
+                          class="form-check-input mx-1"
+                          id="datenschutz"
+                          [(ngModel)]="form_datenschutz"
+                          [ngModelOptions]="{ standalone: true }"
+                        >
+
+                <label for="datenschutz" class="form-check-label mx-4">ich bin einverstanden, daß meine Daten zum Zwecke der Bearbeitung dieser Nachricht gespeichert werden</label>
+                </div>
+              </div>
+
+            <div class="row mx-1">
+              <div *ngIf="errortext" class="alert alert-danger" role="alert">
+                <span>{{ errortext }}</span>
+              </div>
+              <div *ngIf="successtext" class="alert alert-success" role="alert">
+                <span>{{ successtext }}</span>
+              </div>
+            </div>
+            <div *ngIf="!successtext" class="form-group row">
+              <div class="col-sm-10">
+                <button
+                  type="submit"
+                  class="btn btn-danger btn-red mb-2 mt-2"
+                  (click)="sendMessage()"
+                >
+                  Nachricht abschicken
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

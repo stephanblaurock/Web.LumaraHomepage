@@ -47,7 +47,8 @@ const APP_ROUTES: Routes = [
   {path: 'gastgeber', component: GastgeberComponent},
   {path: 'teammitglied', component: TeammitgliedComponent},
   {path: 'rezepte', component: RezepteComponent},
-  {path: 'rezept', component: RezeptComponent}
+  {path: 'rezept', component: RezeptComponent},
+  {path: 'kontakt', component: KontaktformularComponent}
 ];
 
 @NgModule({

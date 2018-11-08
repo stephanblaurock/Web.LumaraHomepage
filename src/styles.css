@@ -14,6 +14,7 @@ a, a:hover {
 
 .btn-red {
   font-size: x-large;
+  background-color: #AB172E;
 }
 
 h1 {
@@ -45,12 +46,20 @@ ul {
   border-style: solid;
 }
 
+.border-lumara {
+  border-color: #AB172E;
+}
+.text-lumara {
+  color: #AB172E;
+}
+
 .backkurs-item {
   padding: 10px;
-  border-width: 2px;
+  border-width: 0px;
   border-color: #AB172E;
   border-radius: 3px;
   border-style: solid;
+  background-color: #eeeeee;
 }
 .backkurs-item:hover {
   background-color: lightgray;

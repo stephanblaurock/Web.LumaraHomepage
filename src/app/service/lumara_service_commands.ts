@@ -2,6 +2,17 @@ import { JsonCommand } from '../utils/json/json-command';
 import { BackterminAnmeldung } from '../models/backtermine';
 
 export class LumaraServiceCommands {
+  public static SendKontaktformular(name: string, email: string, telefon: string, nachricht: string): JsonCommand {
+    const cmd = new JsonCommand();
+    cmd.ModuleName = 'Modules.Lumara.Base.Service.BaseService';
+    cmd.CommandName = 'SendKontaktformular';
+    cmd.addParameter('Name', name);
+    cmd.addParameter('EMail', email);
+    cmd.addParameter('Telefon', telefon);
+    cmd.addParameter('Nachricht', nachricht);
+    return cmd;
+  }
+
   public static SearchFachberater(stichwort: string, withUmkreis: boolean, myPLZ: string, umkreisDistance: number): JsonCommand {
     const cmd = new JsonCommand();
     cmd.ModuleName = 'Modules.Lumara.Base.Service.BaseService';
@@ -29,11 +40,12 @@ export class LumaraServiceCommands {
     cmd.addParameter('PersonalakteID', personalakteID);
     return cmd;
   }
-  public static UpdateBackterminAnmeldung(anmeldung: BackterminAnmeldung): JsonCommand {
+  public static UpdateBackterminAnmeldung(anmeldung: BackterminAnmeldung, sendConfirmation: boolean): JsonCommand {
     const cmd = new JsonCommand();
     cmd.ModuleName = 'Modules.Lumara.Base.Service.BaseService';
     cmd.CommandName = 'UpdateBackterminAnmeldung';
     cmd.addParameter('BackterminAnmeldung', anmeldung);
+    cmd.addParameter('SendConfirmation', sendConfirmation);
     return cmd;
   }
   public static GetBackterminPageModel(backterminID: number): JsonCommand {
