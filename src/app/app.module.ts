@@ -7,7 +7,7 @@ import {RouterModule, Routes} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import {NgbModule, NgbCollapseModule, NgbCarousel, NgbCarouselModule} from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home.component';
 import { BacksystemComponent } from './views/backsystem/backsystem.component';
 import { UeberUnsComponent } from './views/firma/ueber-uns.component';
@@ -29,6 +29,7 @@ import { LumaraService } from './service/lumara_service';
 import { FachberaterProfilComponent } from './views/erleben/fachberater-profil.component';
 import { BackkursComponent } from './views/erleben/backkurs.component';
 import { BlogPostComponent } from './views/allgemein/blog-post.component';
+import { NgxCaptchaModule} from 'ngx-captcha';
 
 registerLocaleData(localeDe);
 
@@ -48,7 +49,9 @@ const APP_ROUTES: Routes = [
   {path: 'teammitglied', component: TeammitgliedComponent},
   {path: 'rezepte', component: RezepteComponent},
   {path: 'rezept', component: RezeptComponent},
-  {path: 'kontakt', component: KontaktformularComponent}
+  {path: 'kontakt', component: KontaktformularComponent},
+  {path: 'datenschutz', component: DatenschutzComponent},
+  {path: 'impressum', component: ImpressumComponent}
 ];
 
 @NgModule({
@@ -77,11 +80,12 @@ const APP_ROUTES: Routes = [
   ],
   imports: [
     BrowserModule,
-    BrowserModule, FormsModule, HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES),
+    BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
+    RouterModule.forRoot(APP_ROUTES, {scrollPositionRestoration: 'enabled'}),
     NgbModule.forRoot(),
     NgbCollapseModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    NgxCaptchaModule
   ],
   providers: [LumaraService, {
     provide: LOCALE_ID,

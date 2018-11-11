@@ -23,7 +23,7 @@
           </tr>
           <tr *ngIf="currentBacktermin.IsAusstellung">
             <td><span class="text-lumara">Ende? </span></td>
-            <td class="pl-2"> {{currentBacktermin.DateBegin | date:'dd. MMMM yyyy HH:mm'}}</td>
+            <td class="pl-2"> {{currentBacktermin.DateEnd | date:'dd. MMMM yyyy HH:mm'}}</td>
           </tr>
           <tr *ngIf="!currentBacktermin.IsAusstellung">
             <td><span class="text-lumara">Dauer: </span></td>
@@ -58,7 +58,7 @@
       <div class="col-12">
         <h1 class="display-4">Anmeldung</h1><br />
         <div>
-          <form>
+          <form [formGroup]="myFormGroup">
             <!-- Name -->
             <div class="form-group row">
               <label for="name" class="col-sm-2 col-form-label">Name</label>
@@ -109,6 +109,17 @@
                 </div>
               </div>
 
+              <ngx-recaptcha2 class="mx-1"
+              [siteKey]="captcha_siteKey"
+              [size]="captcha_size"
+              [hl]="captcha_lang"
+              [theme]="captcha_theme"
+              (expire)="captcha_handleExpire()"
+              (load)="captcha_handleLoad()"
+              (success)="captcha_handleSuccess($event)"
+              formControlName="recaptcha">
+            </ngx-recaptcha2>
+
             <div class="row mx-1">
                 <div *ngIf="errortext" class="alert alert-danger" role="alert">
                     <span>{{errortext}}</span>
@@ -119,7 +130,7 @@
             </div>
             <div *ngIf="!successtext" class="form-group row">
               <div class="col-sm-10">
-                <button type="submit" class="btn btn-danger btn-red mb-2 mt-2" (click)="saveAnmeldung()">verbindlich anmelden</button>
+                <button type="submit" [disabled]="buttSendDisabled" class="btn btn-danger btn-red mb-2 mt-2" (click)="saveAnmeldung()">verbindlich anmelden</button>
               </div>
             </div>
 

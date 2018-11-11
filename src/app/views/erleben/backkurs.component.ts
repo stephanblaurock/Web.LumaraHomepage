@@ -4,6 +4,7 @@ import { LumaraService } from '../../service/lumara_service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LumaraServiceCommands } from '../../service/lumara_service_commands';
 import {Location} from '@angular/common';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-backkurs',
@@ -17,6 +18,12 @@ export class BackkursComponent implements OnInit {
   buchungsFormularVisible = false;
   showAusgebuchtText = false;
 
+  myFormGroup: FormGroup;
+  captcha_siteKey = '6LcJz3YUAAAAAJA_2bh9n2CuUcO8F1vM0hCxjQ0Y';
+  captcha_size = 'normal';
+  captcha_lang = 'de';
+  captcha_theme = 'light';
+
   form_name = '';
   form_email = '';
   form_telefon = '';
@@ -27,11 +34,16 @@ export class BackkursComponent implements OnInit {
   successtext = '';
   errortext = '';
 
+  buttSendDisabled = true;
+
   constructor(private lumaraService: LumaraService,
     private router: Router,
-    private route: ActivatedRoute, private mylocation: Location) { }
+    private route: ActivatedRoute, private mylocation: Location, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.myFormGroup = this.formBuilder.group({
+      recaptcha: ['', Validators.required]
+    });
     this.currentBackterminID = +this.route.snapshot.queryParams.kursid;
     this.loadBackterminPageModel();
   }
@@ -55,6 +67,18 @@ export class BackkursComponent implements OnInit {
           // this.router.navigate(['/login']);
         }
       });
+  }
+
+  captcha_handleExpire() {
+    this.buttSendDisabled = true;
+  }
+  captcha_handleLoad() {
+
+  }
+  captcha_handleSuccess($event) {
+    console.log('captcha-success:');
+    console.log($event);
+    this.buttSendDisabled = false;
   }
 
   showBuchungsFormular() {

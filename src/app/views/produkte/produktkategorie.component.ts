@@ -34,7 +34,7 @@ export class ProduktkategorieComponent implements OnInit {
         if (data.ReturnCode === 200) {
           // console.log('Ich bekam vom Server folgende Daten: ');
           // console.log(data);
-          // console.log(data.ReturnValue);
+          console.log(data.ReturnValue);
           this.artikelItems = JSON.parse(data.ReturnValue);
 
         } else if (data.ReturnCode >= 400) {
@@ -48,6 +48,9 @@ export class ProduktkategorieComponent implements OnInit {
 
     getImageUrl(edvnr: string) {
       return 'https://portal.lumara.de/images/artikel/thumbs150/' + edvnr + '.jpg';
+    }
+    imgErrorHandler(event) {
+      event.target.src = '/assets/products/empty.png';
     }
 
     getArtikelGruppeCaption(aid: number): string {
