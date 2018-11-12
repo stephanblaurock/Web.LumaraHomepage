@@ -81,7 +81,7 @@ const APP_ROUTES: Routes = [
   imports: [
     BrowserModule,
     BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES, {scrollPositionRestoration: 'enabled'}),
+    RouterModule.forRoot(APP_ROUTES, {scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled'}),
     NgbModule.forRoot(),
     NgbCollapseModule,
     NgbCarouselModule,

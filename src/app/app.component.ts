@@ -9,4 +9,11 @@ export class AppComponent {
   title = 'lumara-homepage';
   showNavBar = true;
   isCollapsed = true;
+
+  navLinkClicked() {
+    if  (!this.isCollapsed) {
+      this.isCollapsed = true;
+    }
+  }
 }
+
