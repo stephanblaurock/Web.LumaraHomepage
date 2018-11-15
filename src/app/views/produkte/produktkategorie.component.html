@@ -10,6 +10,7 @@
 
       <div class="col-12">
         <h1 class="display-4"><a [routerLink]="['/produktkatalog']">  </a>{{artikelGruppeCaption}}</h1>
+        <p class="text-muted">Alle Artikelpreise incl. MwSt und nur gültig für Deutschland. Für andere Länder können die Preis abweichen.</p>
       </div>
     </div>
 
@@ -20,8 +21,9 @@
         <div class="card mb-4 bg-red" style="border: none;">
           <!--a [routerLink]="['/produkt']" [queryParams]="{edvnr: artikelItem.EdvNr}"-->
             <img class="card-img-top img-fluid" style="width:100%; max-height: 180px; object-fit: cover; border: none;"  [src]="getImageUrl(artikelItem.EdvNr)" (error)="imgErrorHandler($event)" alt="Produkt">
+            <span *ngIf="artikelItem.PreisSonder_D > 0" class="badge badge-warning mx-1 my-1">Sonderpreis!</span>
             <div class="card-block text-center">
-              <span class="text-light" style="font-family: 'Roboto'; font-weight: bold; font-size:medium">{{artikelItem.EdvNr}} <span style="font-weight: normal; font-size: small">({{artikelItem.PreisVK_EU | number:'1.2-2':'de'}} €)</span></span><br/>
+              <span class="text-light" style="font-family: 'Roboto'; font-weight: bold; font-size:medium">{{artikelItem.EdvNr}} <span style="font-weight: normal; font-size: small">({{artikelItem.PreisVK_D | number:'1.2-2':'de'}} €)</span></span><br/>
               <p class="text-light" style="font-family: 'Roboto'; font-size: small; line-height: 1.1">{{artikelItem.Bezeich}}</p>
             </div>
           <!--/a-->
