@@ -62,6 +62,6 @@ export class FachberatersucheComponent implements OnInit {
   }
 
   imgErrorHandler(event) {
-    event.target.src = '/assets/firma/empty.png';
+    event.target.src = '/assets/firma/empty_with_border.png';
   }
 }

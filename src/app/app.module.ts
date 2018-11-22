@@ -32,6 +32,7 @@ import { BlogPostComponent } from './views/allgemein/blog-post.component';
 import { NgxCaptchaModule} from 'ngx-captcha';
 
 registerLocaleData(localeDe);
+console.log = function() {};
 
 const APP_ROUTES: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},

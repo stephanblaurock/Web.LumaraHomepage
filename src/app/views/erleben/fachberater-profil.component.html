@@ -7,7 +7,7 @@
     <!-- Fachberater-Profil -->
     <div *ngIf="fachberaterProfil" class="row transsection">
       <div class="col-sm-12 col-md-4">
-        <img [src]="getFachberaterImageUrl(fachberaterProfil.UserID)" class="img-fluid lumara-image-border mt-2" >
+        <img [src]="getFachberaterImageUrl(fachberaterProfil.UserID)" (error)="imgErrorHandler($event)" class="img-fluid lumara-image-border mt-2" >
       </div>
       <div class="col-sm-12 col-md-8">
         <h1 class="display-4">{{fachberaterProfil.Caption}}</h1>

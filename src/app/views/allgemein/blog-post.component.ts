@@ -17,7 +17,7 @@ export class BlogPostComponent implements OnInit, OnChanges {
   lastLoadedArticleID = 0;
 
   constructor(private lumaraService: LumaraService, private router: Router, private route: ActivatedRoute) {
-    console.log('1. Konstruktor!');
+    // console.log('1. Konstruktor!');
   }
 
   ngOnInit() {
@@ -30,7 +30,7 @@ export class BlogPostComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['articleID']) {
-        console.log('articleID hat sich von aussen geändert!');
+        // console.log('articleID hat sich von aussen geändert!');
         this.reloadPost();
     }
 }
@@ -45,8 +45,8 @@ export class BlogPostComponent implements OnInit, OnChanges {
     this.lumaraService.doCommand(LumaraServiceCommands.GetBlogPost(this.articleID)).subscribe(
       data => {
         if (data.ReturnCode === 200) {
-           console.log('Ich bekam vom Server folgende Daten: ');
-           console.log(data.ReturnValue);
+           // console.log('Ich bekam vom Server folgende Daten: ');
+           // console.log(data.ReturnValue);
           this.blogPost = JSON.parse(data.ReturnValue);  // JSON.parse(data.ReturnValue);
           this.lastLoadedArticleID = this.articleID;
         } else if (data.ReturnCode >= 400) {

@@ -49,6 +49,9 @@ export class FachberaterProfilComponent implements OnInit {
   getFachberaterImageUrl(userID: number) {
     return this.lumaraService.getUserImageUrl(userID);
   }
+  imgErrorHandler(event) {
+    event.target.src = '/assets/products/empty.png';
+  }
 
   getAnzahlFreiText(anzahlFrei: number) {
     if (anzahlFrei === 0) {
