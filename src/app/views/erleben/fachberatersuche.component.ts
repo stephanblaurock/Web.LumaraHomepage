@@ -11,8 +11,8 @@ import { LumaraServiceCommands } from '../../service/lumara_service_commands';
 })
 export class FachberatersucheComponent implements OnInit {
   stichwort = '';
-  withUmkreis = true;
-  myPLZ = '';
+  // withUmkreis = true;
+  // myPLZ = '';
   umkreisDistance = 80;
   fachberaterList: FachberaterSucheListItem[] = undefined;
   searchResultCounter = -1;
@@ -24,11 +24,11 @@ export class FachberatersucheComponent implements OnInit {
     if (!this.stichwort) {
       this.stichwort = '';
     }
-    this.myPLZ = this.route.snapshot.queryParams.plzfilter;
-    if (!this.myPLZ) {
-      this.myPLZ = '';
-    }
-    if (this.stichwort.length > 0 || this.myPLZ.length > 0) {
+   // this.myPLZ = this.route.snapshot.queryParams.plzfilter;
+   // if (!this.myPLZ) {
+   //   this.myPLZ = '';
+   // }
+    if (this.stichwort.length > 0) {
       this.searchFachberater();
     }
   }
@@ -36,11 +36,11 @@ export class FachberatersucheComponent implements OnInit {
   searchFachberater() {
     this.searchResultCounter = -1;
     // tslint:disable-next-line:max-line-length
-    this.withUmkreis = this.myPLZ.length > 0;
+    // this.withUmkreis = this.myPLZ.length > 0;
     // so, an dieser Stelle möchte ich die Filter-Strings in den Query-Parametern abbilden, damit diese dann beim Back-Navigieren wieder aktiviert werden
-    this.router.navigate([], {queryParams: {plzfilter: this.myPLZ, stichwortfilter: this.stichwort}});
+    this.router.navigate([], {queryParams: {stichwortfilter: this.stichwort}});
 
-    this.lumaraService.doCommand(LumaraServiceCommands.SearchFachberater(this.stichwort, this.withUmkreis, this.myPLZ, this.umkreisDistance)).subscribe(
+    this.lumaraService.doCommand(LumaraServiceCommands.SearchFachberater(this.stichwort, this.umkreisDistance)).subscribe(
       data => {
         if (data.ReturnCode === 200) {
           console.log('Ich bekam vom Server folgende Daten: ');

@@ -13,23 +13,23 @@ export class LumaraServiceCommands {
     return cmd;
   }
 
-  public static SearchFachberater(stichwort: string, withUmkreis: boolean, myPLZ: string, umkreisDistance: number): JsonCommand {
+  public static SearchFachberater(stichwort: string, umkreisDistance: number): JsonCommand {
     const cmd = new JsonCommand();
     cmd.ModuleName = 'Modules.Lumara.Base.Service.BaseService';
     cmd.CommandName = 'SearchFachberater';
     cmd.addParameter('Stichwort', stichwort);
-    cmd.addParameter('WithUmkreis', withUmkreis);
-    cmd.addParameter('MyPLZ', myPLZ);
+    // cmd.addParameter('WithUmkreis', withUmkreis);
+    // cmd.addParameter('MyPLZ', myPLZ);
     cmd.addParameter('UmkreisDistance', umkreisDistance);
     return cmd;
   }
-  public static SearchBacktermine(stichwort: string, withUmkreis: boolean, myPLZ: string, umkreisDistance: number): JsonCommand {
+  public static SearchBacktermine(stichwort: string, umkreisDistance: number): JsonCommand {
     const cmd = new JsonCommand();
     cmd.ModuleName = 'Modules.Lumara.Base.Service.BaseService';
     cmd.CommandName = 'SearchBacktermine';
     cmd.addParameter('Stichwort', stichwort);
-    cmd.addParameter('WithUmkreis', withUmkreis);
-    cmd.addParameter('MyPLZ', myPLZ);
+    // cmd.addParameter('WithUmkreis', withUmkreis);
+    // cmd.addParameter('MyPLZ', myPLZ);
     cmd.addParameter('UmkreisDistance', umkreisDistance);
     return cmd;
   }

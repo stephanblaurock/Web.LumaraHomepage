@@ -35,6 +35,7 @@ export class BackkursComponent implements OnInit {
   errortext = '';
 
   buttSendDisabled = true;
+  inwork = false;
 
   constructor(private lumaraService: LumaraService,
     private router: Router,
@@ -91,6 +92,10 @@ export class BackkursComponent implements OnInit {
       this.errortext = 'bitte Datenschutzbestimmungen akzeptieren.';
       return;
     }
+    if (this.inwork) {
+      return;   // keine Doppelbuchungen ermöglichen
+    }
+    this.inwork = true;
     this.successtext = '';
     this.errortext = '';
     const anmeldung = new BackterminAnmeldung();
@@ -115,6 +120,7 @@ export class BackkursComponent implements OnInit {
         // notify('Fehler beim Laden des Backvortrags: ' + data.ReturnMessage);
         // this.router.navigate(['/login']);
       }
+      this.inwork = false;
     });
   }
 

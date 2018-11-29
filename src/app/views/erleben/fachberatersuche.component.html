@@ -13,27 +13,26 @@
           <div class="col-12">
               <h1 class="display-4">Fachberater finden</h1>
               <p>Sie möchten gerne mit einer LUMARA-Beraterin in Ihrer Nähe in Kontakt treten?<br />
-                Geben Sie dazu Ihre PLZ + Wohnort in untenstehendes Feld ein und klicken auf "suchen".<br />
-                Wenn Sie nach einer bestimmten Fachberaterin suchen möchten, geben Sie einfach deren Namen ein.
+                Geben Sie dazu Ihre PLZ oder den Namen der Fachberaterin ein und klicken auf "suchen".
               </p>
             </div>
       </div>
       <form>
       <div class="form-row align-items-center">
-        <div class="col-md-3">
+        <!-- div class="col-md-3">
             <input type="text" class="form-control border-lumara text-lumara" placeholder="PLZ Ort" [(ngModel)]="myPLZ"  [ngModelOptions]="{standalone: true}">
         </div>
         <div class="col-auto">
             oder
-        </div>
-        <div class="col-md-3">
-            <input type="text" class="form-control border-lumara text-lumara" placeholder="Stichwort" [(ngModel)]="stichwort"  [ngModelOptions]="{standalone: true}">
+        </div -->
+        <div class="col-md-4">
+            <input type="text" class="form-control border-lumara text-lumara" placeholder="PLZ oder Stichwort" [(ngModel)]="stichwort"  [ngModelOptions]="{standalone: true}">
         </div>
         <div class="col-auto">
             <button type="submit" class="btn btn-danger btn-red" (click)="searchFachberater()"><span class="glyphicon-refresh-animate"><img src="/assets/icons/refresh.png" style="height:20px; width:20px;"></span> suchen</button>
         </div>
         <div *ngIf="searchResultCounter === 0" class="col-12">
-            <p class="mt-2 text-lumara">Leider finden wir in Ihrem Umkreis keine LUMARA-Fachberaterin. Haben Sie auch PLZ + Ortsnamen eingegeben? Für weitere Informationen wenden Sie sich bitte an die Zentrale in Hainsfarth:
+            <p class="mt-2 text-lumara">Leider finden wir keine Fachberaterin auf Ihre Suchanfrage. Für weitere Informationen wenden Sie sich bitte an die Zentrale in Hainsfarth:
               <strong>09082 1088</strong> oder <a href="mailto:info@lumara.de">info@lumara.de</a></p>
           </div>
       </div>
@@ -45,7 +44,7 @@
     <!-- Ergebnis Fachberatersuche -->
     <div *ngIf="searchResultCounter > 0" class="row transsection mt-2">
       <div class="col-12">
-          <p class="mt-2 text-lumara">folgende Beraterinnen haben wir <span *ngIf="withUmkreis">in Ihrer Nähe (Umkreis 80km Luftlinie)</span> gefunden:</p>
+          <p class="mt-2 text-lumara">folgende Beraterinnen haben wir gefunden:</p>
       </div>
 
 
@@ -59,7 +58,7 @@
               <p *ngIf="fb.IsBZL" class="badge-dark">BEZIRKSLEITUNG</p>
               <p *ngIf="fb.IsGPL" class="badge-secondary">GRUPPENLEITUNG</p>
               <p class="text-light">{{fb.PLZ}} {{fb.Ort}}</p>
-              <h5 *ngIf="withUmkreis" class="text-light">{{fb.Distance | number:'1.0-0'}} km</h5>
+              <h5 *ngIf="fb.Distance > 0" class="text-light">{{fb.Distance | number:'1.0-0'}} km</h5>
             </div>
           </a>
         </div>
