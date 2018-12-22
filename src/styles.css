@@ -131,6 +131,11 @@ ul {
   color: white;
 }
 
+.christmas {
+  background-image: url('/assets/backgrounds/christmas.png');
+  color: white;
+}
+
 .glyphicon-refresh-animate {
   -animation: spin .7s infinite linear;
   -webkit-animation: spin2 .7s infinite linear;
