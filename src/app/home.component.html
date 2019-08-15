@@ -73,20 +73,20 @@
         <!--
         <a type="button" class="btn btn-danger btn-red" href="https://portal.lumara.de/flyer/Flyer_KW36-44_2018.pdf">Flyer KW36-44 2018</a>&nbsp;&nbsp;
         -->
-        <a type="button" class="btn btn-danger btn-red" href="https://portal.lumara.de/flyer/Flyer_KW11-18_2019.pdf">Flyer KW11-18/2019</a> &nbsp;&nbsp;
-        <a type="button" class="btn btn-danger btn-red" href="https://portal.lumara.de/flyer/Flyer_KW19-26.pdf">Flyer KW19-26/2019</a>
+        <!-- a type="button" class="btn btn-danger btn-red" href="https://portal.lumara.de/flyer/Flyer_KW19-26.pdf">Flyer KW19-26/2019</> &nbsp;&nbsp; -->
+        <a *ngFor="let flyerinfo of flyerinfos"  type="button" class="btn btn-danger btn-red" style="margin-right: 5px;" [href]="flyerinfo.Url" target="_blank">{{flyerinfo.Caption}}</a>
         <br>
         <p>...oder stöbern Sie in unserem regulärem Produktkatalog. Hier ist für jeden Geschmack etwas dabei</p>
         <a id="fff" type="button" class="btn btn-danger btn-red" routerLink="/produktkatalog">zum Produktkatalog</a>
       </div>
-      <div class="col-sm-6 col-md-2 align-middle">
-        <a href="https://portal.lumara.de/flyer/Flyer_KW11-18_2019.pdf">
-        <img src="https://portal.lumara.de/flyer/Flyer_KW11-18_2019_01.jpg" class="img-fluid mt-3">
-        </a>
-      </div>
-      <div class="col-sm-6 col-md-2 align-middle">
-          <a href="https://portal.lumara.de/flyer/Flyer_KW19-26.pdf">
+      <!-- >div class="col-sm-6 col-md-2 align-middle">
+        <a href="https://portal.lumara.de/flyer/Flyer_KW19-26.pdf">
         <img src="https://portal.lumara.de/flyer/Flyer_KW19-26_1.jpg" class="img-fluid mt-3">
+        </a>
+      </ -->
+      <div *ngFor="let flyerinfo of flyerinfos"  class="col-sm-6 col-md-2 align-middle">
+          <a [href]="flyerinfo.Url" target="_blank">
+        <img [src]="getThumbnailUrl(flyerinfo.Url, 1)" class="img-fluid mt-3">
           </a>
       </div>
     </div>
