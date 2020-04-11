@@ -54,8 +54,8 @@ export class BackkursComponent implements OnInit {
       .doCommand(LumaraServiceCommands.GetBackterminPageModel(this.currentBackterminID))
       .subscribe(data => {
         if (data.ReturnCode === 200) {
-          console.log('Ich bekam vom Server folgende Daten: ');
-          console.log(data.ReturnValue);
+          // console.log('Ich bekam vom Server folgende Daten: ');
+          // console.log(data.ReturnValue);
           this.currentBacktermin = JSON.parse(data.ReturnValue); // JSON.parse(data.ReturnValue);
           if (!this.currentBacktermin.IsAusstellung) {
             this.showButtonBuchungsformular = this.currentBacktermin.MaxTeilnehmer > this.currentBacktermin.AnzahlTeilnehmer;
