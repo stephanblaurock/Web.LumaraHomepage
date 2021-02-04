@@ -42,9 +42,10 @@ export class FachberatersucheComponent implements OnInit {
 
     this.lumaraService.doCommand(LumaraServiceCommands.SearchFachberater(this.stichwort, this.umkreisDistance)).subscribe(
       data => {
+        console.log('Ich bekam vom Server folgende Daten: ');
+        console.log(data);
         if (data.ReturnCode === 200) {
-          console.log('Ich bekam vom Server folgende Daten: ');
-          console.log(data);
+
           // console.log(data.ReturnValue);
           this.fachberaterList = JSON.parse(data.ReturnValue);
           this.searchResultCounter = this.fachberaterList.length > 0 ? 1 : 0;
